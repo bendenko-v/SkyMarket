@@ -12,6 +12,11 @@ Start Django server with `python3 manage.py runserver`
 
 Frontend on the `localhost:3000`
 
+### Now working:
+- User registration and login/logout
+- Creating ad by user, changing title, description, price and image
+- Adding comments under ads  by logged-in users
+
 ## Issues
 
-Now the app is not working properly.
+Аpp still under development
