@@ -1,11 +1,10 @@
-import os
-
-from django.conf import settings
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, status
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
+from ads.filters import AdFilterSet
 from ads.models import Ad, Comment
 from ads.permissions import IsOwner, IsAdmin
 from ads.serializers import (
@@ -15,6 +14,8 @@ from ads.serializers import (
 
 class AdViewSet(viewsets.ModelViewSet):
     queryset = Ad.objects.all()
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = AdFilterSet
 
     serializers = {
         'list': AdSerializer,

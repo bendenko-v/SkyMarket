@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users',
     'ads',
     'redoc',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
 }
 
 DJOSER = {
@@ -105,7 +109,7 @@ DJOSER = {
 }
 
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('Bearer', ),
+    'AUTH_HEADER_TYPES': ('Bearer',),
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
     'ROTATE_REFRESH_TOKENS': True,
@@ -176,9 +180,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.yandex.ru')
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'smopuimz@yandex.ru')  #
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'smop1985Yandex')  #
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'smopuimz@yandex.ru')  #
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  #
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  #
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')  #
 
 # Connect User based on AbstractBaseUser
 AUTH_USER_MODEL = 'users.User'
