@@ -16,7 +16,7 @@ urlpatterns = [
     path('api/', include('ads.urls')),
 
     path('api/token/', TokenObtainPairView.as_view()),
-    path('api/refresh/', TokenRefreshView.as_view()),
+    path('refresh/', TokenRefreshView.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -96,6 +96,7 @@ DJOSER = {
         'user': 'users.serializers.CurrentUserSerializer',
         'current_user': 'users.serializers.CurrentUserSerializer',
     },
+    'TOKEN_MODEL': None,
     'LOGIN_FIELD': 'email',
     # 'PASSWORD_RESET_CONFIRM_URL': 'users/reset_password/{uid}/{token}',
     # 'PASSWORD_RESET_CONFIRM_RETYPE': 'users/reset_password_confirm/{uid}/{token}',
@@ -104,8 +105,10 @@ DJOSER = {
 }
 
 SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer', ),
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+    'ROTATE_REFRESH_TOKENS': True,
 }
 
 # Database
@@ -169,12 +172,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Include Email Backend
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = os.environ.get('EMAIL_HOST')
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.yandex.ru')
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'smopuimz@yandex.ru')  #
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'smop1985Yandex')  #
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'smopuimz@yandex.ru')  #
 
 # Connect User based on AbstractBaseUser
 AUTH_USER_MODEL = 'users.User'

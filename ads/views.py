@@ -1,22 +1,20 @@
+import os
+
+from django.conf import settings
 from rest_framework import viewsets, status
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
 from ads.models import Ad, Comment
+from ads.permissions import IsOwner, IsAdmin
 from ads.serializers import (
     AdSerializer, AdDetailSerializer, CommentSerializer, AdCreateSerializer, CommentCreateSerializer
 )
 
 
-# class AdPagination(pagination.PageNumberPagination):
-#     page_size = 4
-#     page_size_query_param = 'page'
-
-
 class AdViewSet(viewsets.ModelViewSet):
     queryset = Ad.objects.all()
-    # pagination_class = AdPagination
 
     serializers = {
         'list': AdSerializer,
@@ -26,8 +24,10 @@ class AdViewSet(viewsets.ModelViewSet):
     default_serializer = AdSerializer
 
     permissions = {
-        # 'retrieve': [IsAuthenticated],
         'create': [IsAuthenticated],
+        'update': [IsOwner],
+        'partial_update': [IsOwner],
+        'destroy': [IsOwner | IsAdmin],
     }
     default_permission = [AllowAny]
 
@@ -36,6 +36,7 @@ class AdViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         self.permission_classes = self.permissions.get(self.action, self.default_permission)
+
         return super().get_permissions()
 
     def list(self, request, *args, **kwargs):
@@ -65,11 +66,13 @@ class AdViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
+
         return Response(serializer.data)
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
+
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -84,6 +87,9 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     permissions = {
         'create': [IsAuthenticated],
+        'update': [IsOwner],
+        'partial_update': [IsOwner],
+        'destroy': [IsOwner | IsAdmin],
     }
     default_permission = [AllowAny]
 
@@ -92,6 +98,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         self.permission_classes = self.permissions.get(self.action, self.default_permission)
+
         return super().get_permissions()
 
     def list(self, request, *args, **kwargs):
@@ -110,20 +117,11 @@ class CommentViewSet(viewsets.ModelViewSet):
             'text': request.data.get('text')
         }
 
-        print(data)
-
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #
-    # def create(self, request, *args, **kwargs):
-    #     serializer = self.get_serializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save(author_id=self.request.user, ad_id=kwargs.get('ad_pk'))
-    #
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserAdsListView(ListAPIView):
@@ -133,4 +131,5 @@ class UserAdsListView(ListAPIView):
 
     def list(self, request, *args, **kwargs):
         self.queryset = self.queryset.filter(author=request.user)
+
         return super().list(request, *args, **kwargs)

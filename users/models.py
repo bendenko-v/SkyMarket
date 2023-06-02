@@ -23,7 +23,7 @@ class User(AbstractBaseUser):
     role = models.CharField(_('Role'), max_length=5, choices=UserRoles.choices, default=UserRoles.USER)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     is_active = models.BooleanField(default=True)
-    last_login = models.DateTimeField(blank=True, null=True)
+    last_login = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
 
@@ -41,14 +41,14 @@ class User(AbstractBaseUser):
 
     @property
     def is_superuser(self):
-        return self.is_admin
+        return self.role == UserRoles.ADMIN
 
     @property
     def is_staff(self):
-        return self.is_admin
+        return self.role == UserRoles.ADMIN
 
     def has_perm(self, perm, obj=None):
-        return self.is_admin
+        return self.role == UserRoles.ADMIN
 
     def has_module_perms(self, app_label):
-        return self.is_admin
+        return self.role == UserRoles.ADMIN

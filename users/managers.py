@@ -12,8 +12,8 @@ class UserManager(BaseUserManager):
             first_name=first_name,
             last_name=last_name,
             phone=phone,
-            role='user',
         )
+        user.role = 'user'
         user.is_active = True
         user.set_password(password)
         user.save(using=self._db)
@@ -27,9 +27,8 @@ class UserManager(BaseUserManager):
             last_name=last_name,
             phone=phone,
             password=password,
-            role='admin',
         )
-        user.is_staff = True
-        user.is_superuser = True
+        user.role = 'admin'
+        user.is_active = True
         user.save(using=self._db)
         return user
