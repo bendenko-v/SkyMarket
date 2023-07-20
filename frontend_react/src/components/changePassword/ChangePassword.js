@@ -38,7 +38,7 @@ function ChangePassword() {
       buttonName="Сохранить"
     >
       <label className="linkForm__label">
-        <h2 className="linkForm__subtitlte">Новый пороль</h2>
+        <h2 className="linkForm__subtitlte">New password</h2>
         <input
           className="linkForm__input"
           required
@@ -46,7 +46,7 @@ function ChangePassword() {
           name="new_password"
           type="password"
           minLength="8"
-          placeholder="пароль дожен сотсоять из букв и цифр"
+          placeholder="the password must consist of letters and numbers"
           onChange={handleChangeInput}
         />
         <div
@@ -58,13 +58,13 @@ function ChangePassword() {
         </div>
       </label>
       <label className="linkForm__label">
-        <h2 className="linkForm__subtitlte">Повторить новый пороль</h2>
+        <h2 className="linkForm__subtitlte">Repeat new password</h2>
         <input
           className="linkForm__input"
           required
           value={values.current_password || ""}
           name="current_password"
-          placeholder="повторите пожалуйста пароль"
+          placeholder="please repeat password"
           type="password"
           minLength="8"
           onChange={handleChangeInput}

@@ -10,7 +10,7 @@ function CommentContainer({
 }) {
   return (
     <div className="commentContainer">
-      <h2 className="commentContainer__title">Отзывы</h2>
+      <h2 className="commentContainer__title">Comments</h2>
       <CommentList
         comments={comments}
         setComments={setComments}

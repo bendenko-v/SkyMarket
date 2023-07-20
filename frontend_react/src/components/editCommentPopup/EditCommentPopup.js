@@ -53,7 +53,7 @@ function EditCommentPopup({
           disabled={!isValid}
         >
           <label className="userForm__label userForm__label-comment">
-            <h2 className="userForm__subtitle">Комментарий</h2>
+            <h2 className="userForm__subtitle">Comment</h2>
             <input
               className="userForm__input"
               required

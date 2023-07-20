@@ -22,7 +22,7 @@ function CommentForm({ addComment }) {
   return (
     <form className="comment__form" onSubmit={handeleAddComment}>
       <label className="comment-label">
-        <h2 className="comment__form-title">Оставьте отзыв</h2>
+        <h2 className="comment__form-title">Leave a comment</h2>
         <textarea
           value={values.text}
           type="text"
@@ -45,7 +45,7 @@ function CommentForm({ addComment }) {
         disabled={!isValid}
         type="submit"
       >
-        Отправить
+        Submit
       </button>
       <div className="input-error input-hidden"></div>
     </form>

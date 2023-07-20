@@ -94,7 +94,7 @@ function UserProfile(props) {
         <Profile userInfo={userInfo} handleUpdateUser={handleUpdateUser} />
       </section>
       <div className="userProfile-container">
-        <h2 className="userProfile-title padding">Мои товары</h2>
+        <h2 className="userProfile-title padding">My goods</h2>
         <Link to="/newAd" className="link-button">
           <button className="link-btn" />
         </Link>

@@ -15,7 +15,7 @@ function PopupNavigation(props) {
           className="popupNavigation__close-button close-button"
         ></button>
         <Navigation onClose={props.onClose}/>
-        <Button onClose={props.onClose} logOut={props.logOut} className="button button__text" text="Выйти"/>
+        <Button onClose={props.onClose} logOut={props.logOut} className="button button__text" text="Log out"/>
       </div>
     </div>
   );

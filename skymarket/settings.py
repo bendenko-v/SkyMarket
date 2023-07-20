@@ -20,15 +20,16 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vpvsd0%a*6n1s4@w+wmt*$loc_p4zw^pw6z@e8e21iwii%m3&5'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG', 0))
 
 ALLOWED_HOSTS = ['*']
 
@@ -111,7 +112,7 @@ DJOSER = {
     },
     'TOKEN_MODEL': None,
     'LOGIN_FIELD': 'email',
-    'PASSWORD_RESET_CONFIRM_URL': 'api/reset_password_confirm/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_URL': 'http://localhost:3000/{uid}/{token}',
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
     'EMAIL': {
         'password_reset': 'users.email.PasswordResetEmail',
@@ -132,10 +133,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'NAME': os.environ.get('POSTGRES_NAME', 'skymarket'),
-        'PORT': os.environ.get('DB_PORT', '5433'),
-        'USER': os.environ.get('DB_USER', 'skymarket'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'skymarket'),
+        'NAME': os.environ.get('DB_NAME'),
+        'PORT': os.environ.get('DB_PORT'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
     },
 }
 
@@ -178,8 +179,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Include Email Backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.yandex.ru')
-EMAIL_PORT = 465
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  #
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  #

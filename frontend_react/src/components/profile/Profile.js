@@ -30,18 +30,18 @@ function Profile({ userInfo, handleUpdateUser }) {
 
   return (
     <UserForm
-      title="Привет,"
+      title="Hello,"
       userName={userInfo.first_name}
       onSubmit={handleUpdate}
-      buttonText="Сохранить"
+      buttonText="Save"
       errors={!isValid}
       disabled={!isValid}
     >
       <label className="userForm__label-profile">
-        <h2 className="userForm__subtitle">Имя</h2>
+        <h1 className="userForm__subtitle">First name</h1>
         <input
           value={values.first_name || ""}
-          title="Имя"
+          title="First name"
           name="first_name"
           type="text"
           minLength="3"
@@ -58,10 +58,10 @@ function Profile({ userInfo, handleUpdateUser }) {
         </div>
       </label>
       <label className="userForm__label-profile">
-        <h2 className="userForm__subtitle">Фамилия</h2>
+        <h1 className="userForm__subtitle">Surname</h1>
         <input
           value={values.last_name || ""}
-          title="Фамилия"
+          title="Surname"
           name="last_name"
           type="text"
           required
@@ -78,10 +78,10 @@ function Profile({ userInfo, handleUpdateUser }) {
         </div>
       </label>
       <label className="userForm__label-profile">
-        <h2 className="userForm__subtitle">Телефон</h2>
+        <h1 className="userForm__subtitle">Phone</h1>
         <input
           value={values.phone || ""}
-          title="Телефон"
+          title="Phone"
           type="tel"
           name="phone"
           required

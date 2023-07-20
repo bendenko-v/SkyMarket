@@ -31,12 +31,12 @@ function EmailLink() {
       buttonName="Отправить"
     >
       <label className="linkForm__label">
-        <h2 className="linkForm__subtitlte">Ваш электронный адрес</h2>
+        <h2 className="linkForm__subtitlte">Your email address</h2>
         <input
           className="linkForm__input"
           required
           value={values.email || ""}
-          placeholder="введите ваш e-mail"
+          placeholder="enter your e-mail"
           name="email"
           type="email"
           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"

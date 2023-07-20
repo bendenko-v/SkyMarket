@@ -54,7 +54,7 @@ function Header({ onOpen, logOut }) {
           <Link className="link" to="/sign-in">
             <Button
               user={user}
-              text="Войти"
+              text="Sign in"
               className="button-link button-link__text"
             />
           </Link>

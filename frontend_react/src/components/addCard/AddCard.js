@@ -26,7 +26,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
     setTitle(value);
 
     if (value.length < 8) {
-      errors.title = "Минимальное колличество символоа - 8";
+      errors.title = "Minimum number of characters - 8";
     } else {
       errors.title = "" && setValidationErrors(errors);
     }
@@ -38,7 +38,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
     setPrice(value);
 
     if (!value.length) {
-      errors.price = "Это поле не дожно быть пустым";
+      errors.price = "This field must not be empty";
     } else {
       errors.price = "" && setValidationErrors(errors);
     }
@@ -50,7 +50,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
     setDescription(value);
 
     if (value.length < 8) {
-      errors.description = "Минимальное колличество символоа - 8";
+      errors.description = "Minimum number of characters - 8";
     } else {
       errors.description = "" && setValidationErrors(errors);
     }
@@ -67,9 +67,9 @@ function AddCard({ id, handleAddAd, isLoading }) {
       <UserForm
         id={`${location === "/newAd" ? "" : id}`}
         title={`${
-          location === "/newAd" ? "Добавить новый товар" : "Изменить товар"
+          location === "/newAd" ? "Add new product" : "Change product"
         }`}
-        buttonText={`${location === "/newAd" ? "Добавать" : "Изменить"}`}
+        buttonText={`${location === "/newAd" ? "Add" : "Change"}`}
         onSubmit={addNewAd}
         errors={
           title === null ||
@@ -83,7 +83,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
       >
         <div className="userForm__form-container userForm__form-box">
           <label className="userForm__label">
-            <h2 className="userForm__subtitle">Название</h2>
+            <h2 className="userForm__subtitle">Title</h2>
             <input
               className="userForm__input"
               name="title"
@@ -101,7 +101,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
             </div>
           </label>
           <label className="userForm__label">
-            <h2 className="userForm__subtitle">Изображение</h2>
+            <h2 className="userForm__subtitle">Image</h2>
             <input
               name="image"
               className="userForm__input"
@@ -111,13 +111,13 @@ function AddCard({ id, handleAddAd, isLoading }) {
             <div
               className={`input-hidden ${image === null ? "input-error" : ""}`}
             >
-              {image === null ? "Загрузите фотографию" : ""}
+              {image === null ? "Upload a photo" : ""}
             </div>
           </label>
         </div>
         <div className="userForm__form-container">
           <label className="userForm__label">
-            <h2 className="userForm__subtitle">Цена</h2>
+            <h2 className="userForm__subtitle">Price</h2>
             <input
               className="userForm__input"
               type="number"
@@ -135,7 +135,7 @@ function AddCard({ id, handleAddAd, isLoading }) {
             </div>
           </label>
           <label className="userForm__label">
-            <h2 className="userForm__subtitle">Описание</h2>
+            <h2 className="userForm__subtitle">Description</h2>
             <input
               className="userForm__input"
               name="description"
