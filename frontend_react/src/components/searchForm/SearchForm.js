@@ -8,7 +8,7 @@ function SearchForm({ ad, setAd }) {
     setAd(value);
 
     if (!value.length) {
-      setValidationErrors("Нужно ввести ключевое слово");
+      setValidationErrors("Keyword required");
     } else {
       return setValidationErrors("");
     }
@@ -17,7 +17,7 @@ function SearchForm({ ad, setAd }) {
     <div className="searchForm searchForm__container">
       <input
         className="searchForm__input"
-        placeholder="Поиск"
+        placeholder="Search"
         type="text"
         name="text"
         value={ad}

@@ -17,13 +17,13 @@ function Login(props) {
 
   return (
     <Form
-      header="Рады видеть!"
+      header="Glad to see you!"
       onSubmit={loginUser}
       path="/profile"
-      btn="Войти"
+      btn="Sign in"
       link="/sign-up"
-      linkTitle="Создать аккаунт"
-      newPassword="Восстановить пароль"
+      linkTitle="Sign up"
+      newPassword="Restore password"
       errors={!isValid}
     >
       <>
@@ -48,7 +48,7 @@ function Login(props) {
           </div>
         </label>
         <label className="form__label">
-          <h2 className="form__description">Пароль</h2>
+          <h2 className="form__description">Password</h2>
           <input
             required
             value={values.password || ""}

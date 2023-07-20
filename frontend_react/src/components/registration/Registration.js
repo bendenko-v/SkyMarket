@@ -17,22 +17,22 @@ function Registration() {
 
   return (
     <Form
-      header="Добро пожаловать!"
+      header="Welcome!"
       onSubmit={register}
       path="/sign-in"
-      btn="Зарегистрироваться"
-      text="Уже зарегистрированы?&nbsp;"
+      btn="Sign up"
+      text="Already registered?&nbsp;"
       link="/sign-in"
-      linkTitle="Войти"
+      linkTitle="Sign in"
       errors={!isValid}
     >
       <>
         <label className="form__label">
-          <h2 className="form__description">Имя</h2>
+          <h2 className="form__description">First name</h2>
           <input
             required
             value={values.first_name || ""}
-            title="Имя"
+            title="First name"
             name="first_name"
             type="text"
             minLength="3"
@@ -49,11 +49,11 @@ function Registration() {
           </div>
         </label>
         <label className="form__label">
-          <h2 className="form__description">Фамилия</h2>
+          <h2 className="form__description">Surname</h2>
           <input
             required
             value={values.last_name || ""}
-            title="Фамилия"
+            title="Surname"
             name="last_name"
             type="text"
             minLength="3"
@@ -89,14 +89,14 @@ function Registration() {
           </div>
         </label>
         <label className="form__label">
-          <h2 className="form__description">Пароль</h2>
+          <h2 className="form__description">Password</h2>
           <input
             required
             value={values.password || ""}
             name="password"
             type="password"
             minLength="8"
-            placeholder="пароль должен состоять из букв и цифр"
+            placeholder="the password must consist of letters and numbers"
             className="form__password form__input"
             onChange={handleChangeInput}
           />
@@ -109,11 +109,11 @@ function Registration() {
           </div>
         </label>
         <label className="form__label">
-          <h2 className="form__description">Телефон</h2>
+          <h2 className="form__description">Phone</h2>
           <input
             required
             value={values.phone || ""}
-            title="Телефон"
+            title="Phone"
             type="tel"
             name="phone"
             pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"

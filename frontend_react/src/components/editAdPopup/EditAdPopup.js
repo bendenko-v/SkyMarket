@@ -44,7 +44,7 @@ function EditAdPopup({ isEditPopupOpen, onClose, handleEditAdd, id, ad }) {
           errors={!isValid}
         >
           <label className="comment-label">
-            <h2 className="userForm__subtitle">Название</h2>
+            <h2 className="userForm__subtitle">Title</h2>
             <input
               className="userForm__input"
               value={values.title || ""}
@@ -64,7 +64,7 @@ function EditAdPopup({ isEditPopupOpen, onClose, handleEditAdd, id, ad }) {
             </div>
           </label>
             <label className="comment-label">
-              <h2 className="userForm__subtitle">Цена</h2>
+              <h2 className="userForm__subtitle">Price</h2>
               <input
                 className="userForm__input"
                 type="number"
@@ -84,7 +84,7 @@ function EditAdPopup({ isEditPopupOpen, onClose, handleEditAdd, id, ad }) {
               </div>
             </label>
             <label className="comment-label">
-              <h2 className="userForm__subtitle">Описание</h2>
+              <h2 className="userForm__subtitle">Description</h2>
               <input
                 className="userForm__input"
                 name="description"

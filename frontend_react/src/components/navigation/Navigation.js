@@ -11,7 +11,7 @@ function Navigation({ onClose, user }) {
         className={`navigation__link ${location === "/" ? "activeLink" : null}`}
       >
         <li>
-          <h2 className="navigation__text">Главная</h2>
+          <h2 className="navigation__text">Main page</h2>
         </li>
       </NavLink>
       <NavLink
@@ -22,7 +22,7 @@ function Navigation({ onClose, user }) {
         onClick={onClose}
       >
         <li>
-          <h2 className="navigation__text">Профиль</h2>
+          <h2 className="navigation__text">Profile</h2>
         </li>
       </NavLink>
     </ul>

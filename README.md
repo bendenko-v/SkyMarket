@@ -1,17 +1,19 @@
 # SkyMarket
 
-Django REST API backend
+Avito like application.
 
-## Usage
+Django REST API backend + SkyPro frontend
 
 ### Requirements
 * Python >3.7
 * Docker
 
+## Usage
+
 Install the required dependencies by running the following command: `pip install -r requirements.txt`
 
 Run the following command in the market_postgres folder to start the Docker containers and build the project:
-`docker-compose up --build -d`
+`docker-compose up -d --build`
 
 Apply database migrations by running the following command: `python3 manage.py migrate`
 

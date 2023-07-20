@@ -32,7 +32,7 @@ function EditUserImgPopup({ isOpen, onClose, editUserPhoto }) {
           errors={!isValid}
         >
           <label className="userForm__label userForm__label-comment">
-            <h2 className="userForm__subtitle">Фотография</h2>
+            <h2 className="userForm__subtitle">Photo</h2>
             <input
               className="userForm__input"
               name="image"

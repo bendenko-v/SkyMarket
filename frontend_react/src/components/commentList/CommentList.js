@@ -5,7 +5,7 @@ function CommentList({ comments, setComments, user }) {
   return (
     <>
       {!comments.length ? (
-        <p className="comment-text">Оставтье комментарий первым.</p>
+        <p className="comment-text">Be the first to comment</p>
       ) : (
         <ul className="comment-list">
           {comments.map((comment) => {

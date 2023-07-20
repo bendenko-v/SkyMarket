@@ -9,17 +9,17 @@ function Promo({ pageQty, ad, setAd, user, setPage, page }) {
       <MediaQuery minWidth={801}>
         <div className="promo__box">
           <div className="promo__title-box">
-            <h2 className="promo__title">ADS-ONLINE</h2>
+            <h2 className="promo__title">Ads Online</h2>
             <p className="promo__subtitle">
-              Лучшая платформа для продажи вещей
+              The best platform for selling things!
             </p>
           </div>
           <SearchForm ad={ad} setAd={setAd} user={user} page={page} />
         </div>
       </MediaQuery>
       <MediaQuery maxWidth={800}>
-        <h2 className="promo__title">ADS-ONLINE</h2>
-        <p className="promo__subtitle">Лучшая платформа для продажи вещей</p>
+        <h2 className="promo__title">Ads Online</h2>
+        <p className="promo__subtitle">The best platform for selling things!</p>
         <SearchForm ad={ad} setAd={setAd} user={user} page={page} />
       </MediaQuery>
       <PaginationComponent pageQty={pageQty} setPage={setPage} page={page} />
