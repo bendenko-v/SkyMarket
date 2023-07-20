@@ -4,6 +4,11 @@ Avito like application.
 
 Django REST API backend + SkyPro frontend
 
+![Main page](https://habrastorage.org/webt/mt/0z/8y/mt0z8y5rpla6zylgwmnufftembw.jpeg)
+
+![Product page](https://habrastorage.org/webt/s1/dw/ne/s1dwne1vipg9koaq-n82lywzciy.jpeg)
+
+
 ### Requirements
 * Python >3.7
 * Docker
